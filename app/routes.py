@@ -20,13 +20,12 @@ ENERGY_RATES_PER_1000_KWH = {
 }
 
 
-def get_province(postal):
+def get_postal_info(postal):
     url_postal = "https://geocoder.ca/?locate={postal}&geoit=xml&json=1".format(
         postal=postal)
     r = requests.get(url_postal)
     if r.status_code == 200:
-        province = r.json()["standard"]["prov"]
-        return province
+        return r.json()
     else:
         return "Invalid postal code"
 
@@ -34,6 +33,25 @@ def get_province(postal):
 def get_energy_rate(province):
     energy_rate = ENERGY_RATES_PER_1000_KWH[province]
     return str(energy_rate)
+
+
+def cooling_days_at_nearest_station(coordinates):
+    nearest_station_distance = None
+    COOLING_DEGREE_DAYS = None
+    for index, row in stations_df.iterrows():
+        lat = row['LATITUDE']
+        long = row['LONGITUDE']
+        weather_station_coord = (lat, long)
+        distance = geopy.distance.vincenty(coords_1, weather_station_coord).km
+
+        if index == 0:
+            nearest_station_distance = distance
+            COOLING_DEGREE_DAYS = row['COOLING_DEGREE_DAYS']
+        else:
+            if distance < nearest_station:
+                nearest_station_distance = distance
+                COOLING_DEGREE_DAYS = row['COOLING_DEGREE_DAYS']
+    return COOLING_DEGREE_DAYS
 
 
 @app.route('/get_models')
@@ -49,8 +67,11 @@ def login():
     form = LoginForm()
     if request.method == 'POST':
         # print(request.form)
-        province = get_province(form.postal.data)
+        postal_info = get_postal_info(form.postal.data)
+        postal_centroid = (postal_info["longt"], postal_info["latt"])
+        print(postal_centroid)
+        province = postal_info["standard"]["prov"]
         energy_rate = get_energy_rate(province)
-        return render_template('results.html', energy_rate=energy_rate, province=province, brand=form.brand.data, model=form.model.data)
+        return render_template('results.html', energy_rate=energy_rate, province=province, brand=form.brand.data, model=form.model.data, postal_centroid=postal_centroid)
     else:
         return render_template('submit_postal.html',  title='Energy use', form=form)
