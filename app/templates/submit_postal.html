@@ -4,7 +4,11 @@
   {{ form.hidden_tag() }}
   <p>
     {{ form.postal.label }}<br />
-    {{ form.postal(size=32) }}
+    {{ form.postal(size=32) }}<br /><br />
+    {{ form.air_con.label }}<br />
+    {{ form.air_con() }}<br /><br />
+    {{ form.model.label }}<br />
+    {{ form.model() }}
   </p>
   <p>{{ form.submit() }}</p>
 </form>
