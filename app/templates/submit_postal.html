@@ -5,11 +5,32 @@
   <p>
     {{ form.postal.label }}<br />
     {{ form.postal(size=32) }}<br /><br />
-    {{ form.air_con.label }}<br />
-    {{ form.air_con() }}<br /><br />
+    {{ form.brand.label }}<br />
+    {{ form.brand() }}<br /><br />
     {{ form.model.label }}<br />
     {{ form.model() }}
   </p>
   <p>{{ form.submit() }}</p>
 </form>
+{% endblock %} {% block scripts %}
+{{ super() }}
+<script>
+  function update_models() {
+    brand = $("#brand").val();
+    if (brand.length) {
+      $("#model").empty();
+      $.get("{{ url_for('get_models') }}", { brand: brand }, function(data) {
+        $.each(data, function(index, value) {
+          var option = $("<option></option>")
+            .attr("value", value)
+            .text(value);
+          $("#model").append(option);
+        });
+      });
+    }
+  }
+  $("#brand").on("change", function() {
+    update_models();
+  });
+</script>
 {% endblock %}

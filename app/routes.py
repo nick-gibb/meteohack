@@ -1,7 +1,11 @@
-from flask import render_template, flash, redirect, url_for
+from flask import render_template, flash, redirect, url_for, jsonify, request
 from app import app
 from app.forms import LoginForm
 import requests
+import pandas as pd
+
+filename = "data/010_room_air_conditioners_climatiseurs_individuels/010_Data_Données.csv"
+acs = pd.read_csv(filename, encoding='cp1252')
 
 ENERGY_RATES_PER_1000_KWH = {
     "QC": 100,
@@ -32,14 +36,21 @@ def get_energy_rate(province):
     return str(energy_rate)
 
 
+@app.route('/get_models')
+def get_models():
+    brand_requested = request.args.get("brand")
+    models = acs[acs["BRAND_NAME"] ==
+                 brand_requested]['MODEL_NUM_1'].unique().tolist()
+    return jsonify(models)
+
+
 @app.route('/', methods=['GET', 'POST'])
 def login():
     form = LoginForm()
-    if form.validate_on_submit():
-        # flash('Login requested for user {}'.format(form.postal.data))
+    if request.method == 'POST':
+        # print(request.form)
         province = get_province(form.postal.data)
         energy_rate = get_energy_rate(province)
-        print(province)
-        print(energy_rate)
-        return render_template('results.html', energy_rate=energy_rate, province=province)
-    return render_template('submit_postal.html',  title='Energy use', form=form)
+        return render_template('results.html', energy_rate=energy_rate, province=province, brand=form.brand.data, model=form.model.data)
+    else:
+        return render_template('submit_postal.html',  title='Energy use', form=form)
