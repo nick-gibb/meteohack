@@ -1,9 +1,13 @@
 {% extends "base.html" %} {% block app_content %}
 <h4>
-  Yearly cost for an {{ brand }} {{ model }} air conditioner in {{ city }},
-  {{ province }}:
+  Yearly cost for a {{ brand }} {{ model }} air conditioner in {{ city }}, {{ province }}:
 </h4>
-<h2 class="text-center">${{ operation_cost }}</h2>
+{% for year, op_costs in yearly_op_cost.items() %}
+  <h5>{{year}}</h5>
+  {% for climate_model, cost in op_costs.items() %}
+    <h2 class="text-center">{{ climate_model }} ${{ cost }}</h2>
+  {% endfor %}
+{% endfor %}
 
 <div class="row">
   <div class="col-md-4">
@@ -15,12 +19,12 @@
       <li>Energy efficiency ratio: {{ EE_RATIO }}</li>
       <li>Capacity of the air conditioner: {{ COOL_CAP_BTU }} Btu/h</li>
       <li>
-        Cooling days: {{ cooling_days }} (from {{ name_nearest_station }},
-        {{ nearest_station_distance }} km away)
+        Cooling days: {{ yearly_cdd }}
       </li>
       <li>
         Summer outdoor design temperature for {{ city }}, {{ province }}:
-        {{ design_temp }}
+        {{ design_temp }} (from {{ name_nearest_station }},
+        {{ nearest_station_distance }} km away)
       </li>
     </ul>
     <a href="{{ url_for('login') }}"

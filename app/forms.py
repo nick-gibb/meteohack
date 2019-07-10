@@ -1,16 +1,15 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, SelectField
 from wtforms.validators import DataRequired
-import pandas as pd
-filename = "data/010_room_air_conditioners_climatiseurs_individuels/010_Data_Données.csv"
-acs = pd.read_csv(filename, encoding='cp1252')
-brands = acs["BRAND_NAME"].unique().tolist()
 
-choices = [(g, g) for g in brands]
+from ac_calc.data import get_ac_brands
+
+choices = [(g, g) for g in get_ac_brands()]
 
 
 class LoginForm(FlaskForm):
     postal = StringField('Postal code')
+    years = StringField('Years [1959-2100]', default='1969, 2019, 2099')
     brand = SelectField('Air conditioner manufacturer', choices=choices)
     model = SelectField('Air conditioner model', choices=[('', '')])
     submit = SubmitField('Calculate')
