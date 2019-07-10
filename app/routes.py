@@ -177,7 +177,9 @@ def login():
         cooling_days, name_nearest_station, nearest_station_distance = cooling_days_at_nearest_station(
             postal_centroid)
         nearest_station = get_nearest_design_temp(postal_centroid)
-        design_temp = nearest_station['design_temp']
+        design_temp_F = nearest_station['design_temp']
+        # Convert to celcius
+        design_temp = round((design_temp_F - 32) * 5/9, 1)
         province = postal_info['results'][0]['address_components'][4]['short_name']
         energy_rate = float(get_energy_rate(province))
         model = form.model.data
