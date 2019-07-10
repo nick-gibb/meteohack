@@ -11,6 +11,6 @@ choices = [(g, g) for g in brands]
 
 class LoginForm(FlaskForm):
     postal = StringField('Postal code')
-    brand = SelectField('Air conditioner brand', choices=choices)
-    model = SelectField('Model', choices=[('', '')])
-    submit = SubmitField('Submit')
+    brand = SelectField('Air conditioner manufacturer', choices=choices)
+    model = SelectField('Air conditioner model', choices=[('', '')])
+    submit = SubmitField('Calculate')

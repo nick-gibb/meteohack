@@ -1,13 +1,32 @@
 {% extends "base.html" %} {% block app_content %}
+<h4>
+  Yearly cost for an {{ brand }} {{ model }} air conditioner in {{ city }},
+  {{ province }}:
+</h4>
+<h2 class="text-center">${{ operation_cost }}</h2>
 
-<h3>Province: {{ province }}</h3>
-
-<h3>Energy rate ($/1000 kWh): {{ energy_rate }}</h3>
-
-<h3>Air conditioner: {{ brand }} {{ model }}</h3>
-
-<h3>Coordinates: {{ postal_centroid }}</h3>
-
-<h3>Cooling days: {{ cooling_days }}</h3>
+<div class="row">
+  <div class="col-md-4">
+    <p>
+      Here are the variables used in the calculation:
+    </p>
+    <ul>
+      <li>{{ province }} energy price: ${{ energy_rate }}/kWh.</li>
+      <li>Energy efficiency ratio: {{ EE_RATIO }}</li>
+      <li>Capacity of the air conditioner: {{ COOL_CAP_BTU }} Btu/h</li>
+      <li>
+        Cooling days: {{ cooling_days }} (from {{ name_nearest_station }},
+        {{ nearest_station_distance }} km away)
+      </li>
+      <li>
+        Summer outdoor design temperature for {{ city }}, {{ province }}:
+        {{ design_temp }}
+      </li>
+    </ul>
+    <a href="{{ url_for('login') }}"
+      ><button class="btn btn-primary">Back</button></a
+    >
+  </div>
+</div>
 
 {% endblock %}

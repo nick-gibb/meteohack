@@ -1,0 +1,521 @@
+station,design_temp,province
+Banff CS,78,AB
+Bow Island,85,AB
+Bow Valley,80,AB
+Breton Plots,80,AB
+Brooks,86,AB
+Calgary IAP,80,AB
+Camrose,79,AB
+Cardston,84,AB
+Claresholm,84,AB
+Cold Lake AP,79,AB
+Cop Upper,79,AB
+Coronation,82,AB
+Crowsnest,80,AB
+Drumheller East,85,AB
+"Edmonton, City Centre AP",79,AB
+"Edmonton, IAP",78,AB
+"Edmonton, Namao AP",78,AB
+Edson AP,77,AB
+Elk Island National Park,80,AB
+Esther 1,86,AB
+Fort Chipewyan AP,78,AB
+Fort Mcmurray AP,80,AB
+Garden River,80,AB
+Grande Prairie AP,78,AB
+High Level AP,78,AB
+Highvale,78,AB
+Jasper,78,AB
+Jasper Warden,81,AB
+Lac La Biche,78,AB
+Lacombe,79,AB
+Lethbridge AP,85,AB
+Lethbridge,86,AB
+Lloydminster AP,80,AB
+McMurray AP,80,AB
+Medicine Hat AP,87,AB
+Mildred Lake,81,AB
+Milk River,86,AB
+Nakiska Ridgetop,62,AB
+Onefour,88,AB
+Peace River AP,78,AB
+Pincher Creek,82,AB
+Red Deer AP,79,AB
+Red Earth,79,AB
+Rocky Mtn. House,77,AB
+Slave Lake AP,76,AB
+Springbank AP,77,AB
+Stavely AACF,78,AB
+Sundre AP,79,AB
+Three Hills,82,AB
+Vauxhall,86,AB
+Vegreville,80,AB
+Vermilion AP,80,AB
+Wainwright CFB Airfield 21,82,AB
+Waterton Park Gate,82,AB
+Whitecourt AP,76,AB
+Abbotsford AP,82,BC
+Agassiz,83,BC
+Alert Bay,65,BC
+Amphitrite Point,64,BC
+Ballenas Island,73,BC
+Blue River,83,BC
+Bonilla Island,60,BC
+Burns Lake Decker Lake,77,BC
+Cape Scott,61,BC
+Cape St James,64,BC
+Castlegar AP,88,BC
+Cathedral Point,70,BC
+Clinton,81,BC
+Comox AP,76,BC
+Cranbrook AP,85,BC
+Creston Campbell Scientific,87,BC
+Cumshewa Island,63,BC
+Dawson Creek,79,BC
+Dease Lake,72,BC
+Discovery Island,70,BC
+Entrance Island,72,BC
+Esquimalt Harbour,70,BC
+Estevan Point,66,BC
+Fort Nelson AP,79,BC
+Fort St. John AP,76,BC
+Grey Islet,64,BC
+Herbert Island,60,BC
+Holland Rock,60,BC
+Hope,83,BC
+Howe Sound - Pam Rocks,74,BC
+Kamloops AP,89,BC
+Kelowna AP,87,BC
+Kindakun Rocks,61,BC
+Langara,59,BC
+Lillooet,91,BC
+Lucy Island Lightstation,62,BC
+Lytton,91,BC
+Mackenzie AP,77,BC
+Malahat,78,BC
+Nakusp,84,BC
+Namaimo,80,BC
+Nelson,85,BC
+New Westminster,81,BC
+Osoyoos,92,BC
+Pemberton AP,88,BC
+Penticton AP,87,BC
+Pitt Meadows,83,BC
+Point Atkinson,75,BC
+Port Alberni,84,BC
+Port Hardy AP,66,BC
+Prince George AP,78,BC
+Prince Rupert AP,64,BC
+Princeton,88,BC
+Puntzi Mountain,80,BC
+Quesnel AP,81,BC
+Revelstoke AP,83,BC
+Rose Spit,61,BC
+Salmon Arm,87,BC
+Sandheads,70,BC
+Sandspit AP,65,BC
+Sartine Island,60,BC
+Sheringham Point,67,BC
+Sisters Island,72,BC
+Smithers AP,77,BC
+Solander Island,61,BC
+Sparwood,82,BC
+Spring Island,66,BC
+Squamish,81,BC
+Summerland,88,BC
+Terrace AP,78,BC
+Tofino AP,68,BC
+Trail,89,BC
+Vancouver Harbour,76,BC
+Vancouver IAP,74,BC
+Vernon,88,BC
+Victoria Gonzales,72,BC
+Victoria Hartland,80,BC
+Victoria IAP,76,BC
+Victoria Marine,67,BC
+Victoria University,77,BC
+West Vancouver,78,BC
+White Rock,74,BC
+Williams Lake AP,79,BC
+Yoho Park,74,BC
+Berens River,79,MB
+Brandon AP,83,MB
+Carberry,83,MB
+Carman U of M,84,MB
+Churchill AP,74,MB
+Dauphin AP,83,MB
+Delta Marsh,82,MB
+Emerson,84,MB
+Fisher Branch,82,MB
+George Island,73,MB
+Gillam AP,78,MB
+Gimli Industrial Park,81,MB
+Grand Rapids,81,MB
+Gretna,84,MB
+Hunters Point,78,MB
+Island Lake AP,79,MB
+Lynn Lake AP,79,MB
+Melita,84,MB
+Norway House AP,79,MB
+Oakpoint,79,MB
+Pilot Mound,82,MB
+Pinawa,82,MB
+"Portage, Southport AP",86,MB
+Flin Flon,81,MB
+Roblin,81,MB
+Shoal Lake,80,MB
+Sprague,82,MB
+Swan River,82,MB
+The Pas AP,80,MB
+Thompson AP,80,MB
+Victoria Beach,79,MB
+Wasagaming,80,MB
+Wilson Creek Weir,82,MB
+Winnipeg Richardson IAP,84,MB
+Bas Caraquet,79,NB
+Charlo AP,79,NB
+Chatham AP,83,NB
+Edmundston CO,83,NB
+Fredericton AP,82,NB
+Miramichi AP,83,NB
+Miramichi,84,NB
+Miscou Island,76,NB
+Moncton AP,80,NB
+Point Escuminac,77,NB
+Point Lepreau,71,NB
+Saint John AP,76,NB
+St Leonard,80,NB
+St Stephen,82,NB
+Argentia,66,NL
+Badger,80,NL
+Battle Harbour,60,NL
+Bonavista,72,NL
+Burgeo 2,67,NL
+Cape Kakkiviak,59,NL
+Cape Race,64,NL
+Cartwright,71,NL
+Churchill Falls,72,NL
+Comfort Cove,76,NL
+Corner Brook,76,NL
+Daniels Harbour,67,NL
+Deer Lake AP,77,NL
+Englee,70,NL
+Ferolle Point,65,NL
+Gander IAP,76,NL
+Goose Bay AP,78,NL
+Grates Cove,71,NL
+Hopedale,68,NL
+La Scie,76,NL
+Marticot Island,65,NL
+Pools Island,71,NL
+Port Aux Basques,67,NL
+Saglek,63,NL
+Sagona Island,65,NL
+St Anthony,70,NL
+St John's AP,73,NL
+St Lawrence,70,NL
+Stephenville AP,71,NL
+Twillingate,73,NL
+Wabush Lake AP,73,NL
+Aulavik National Park,56,NT
+Cape Parry AP,55,NT
+Colville Lake,72,NT
+Fort Good Hope,79,NT
+Fort Liard,80,NT
+Fort Providence,80,NT
+Fort Reliance,70,NT
+Fort Simpson AP,80,NT
+Fort Smith AP,79,NT
+Hanbury River,71,NT
+Hay River AP,77,NT
+Inner Whalebacks,66,NT
+Inuvik AP,75,NT
+Lac La Martre,78,NT
+Lindburg Landing,79,NT
+Little Chicago,78,NT
+Liverpool Bay,65,NT
+Mould Bay AP,47,NT
+Nicholson Peninsula,64,NT
+"Norman, Wells AP",78,NT
+Pelly Island,62,NT
+Rae Lakes,76,NT
+Sachs Harbour,56,NT
+Trout Lake,76,NT
+Tuktoyaktuk,69,NT
+Yellowknife AP,74,NT
+Yohin,73,NT
+Amherst,75,NS
+Baccaro Point,65,NS
+Beaver Island,67,NS
+Brier Island,67,NS
+Caribou Point,78,NS
+Grand Etang,77,NS
+Greenwood AP,81,NS
+"Halifax, Stanfield IAP",79,NS
+Hart Island,71,NS
+Kejimkujik,81,NS
+Kentville,83,NS
+New Glasgow,79,NS
+Sable Island,70,NS
+Shearwater AP,76,NS
+St Paul Island,70,NS
+Sydney AP,78,NS
+Truro CO,71,NS
+Western Head,72,NS
+Yarmouth AP,71,NS
+Alert,49,NU
+Baker Lake AP,67,NU
+Brevoort Island,54,NU
+Byron Bay AP,60,NU
+Cambridge Bay AP,59,NU
+Cape Dorset App,57,NU
+Cape Dyer,52,NU
+Cape Hooper,53,NU
+Cape Mercy,51,NU
+Cape Peel West,63,NU
+Chesterfield,60,NU
+Clinton Point,62,NU
+Clyde AP,52,NU
+Coral Harbour AP,61,NU
+Croker River,65,NU
+Dewar Lakes,54,NU
+Ennadai Lake,71,NU
+Eureka,50,NU
+Fox Five,53,NU
+Gladman Point AP,56,NU
+Hall Beach AP,53,NU
+Hat Island,54,NU
+Iqaluit AP (AKA Frobisher),57,NU
+Jenny Lind Island AP,53,NU
+Kugluktuk AP,68,NU
+Lady Franklin Point AP,55,NU
+Longstaff Bluff,56,NU
+Mackar Inlet,57,NU
+Pangnirtung,55,NU
+Pelly Bay,58,NU
+Pond Inlet AP,52,NU
+Rankin Inlet AP,63,NU
+Resolute,48,NU
+Resolution Island,55,NU
+Robertson Lake,70,NU
+Shepherd Bay AP,60,NU
+Armstrong,80,ON
+Atikokan,82,ON
+Bancroft,83,ON
+Beausoleil,83,ON
+Belle River,86,ON
+Belleville,84,ON
+Big Trout Lake,76,ON
+Big Trout Lake Readac,78,ON
+Burlington Piers,84,ON
+Chatham,87,ON
+Cobourg,76,ON
+Collingwood,83,ON
+Cornwall,87,ON
+Cove Island,73,ON
+Earlton AP,81,ON
+Erieau,79,ON
+Geraldton AP,80,ON
+Goderich,81,ON
+Gore Bay AP,79,ON
+Great Duck Island,74,ON
+Grenadier Island,83,ON
+Hamilton,86,ON
+Kapuskasing AP,81,ON
+Kenora AP,82,ON
+Killarney,75,ON
+Kingston,84,ON
+Kitchener,85,ON
+Lagoon City,79,ON
+Lansdowne House,79,ON
+London Int'L AP,83,ON
+Long Point,77,ON
+Moosonee AP,81,ON
+Mount Forest,81,ON
+Muskoka AP,80,ON
+Nagagami,82,ON
+North Bay AP,79,ON
+Oshawa,86,ON
+"Ottawa, Macdonald-Cartier IAP",84,ON
+Owen Sound,82,ON
+Peawanuck,79,ON
+Petawawa AP,83,ON
+Peterborough AP,83,ON
+Pickle Lake,80,ON
+Point Petre,77,ON
+Port Colborne,77,ON
+Port Weller,82,ON
+Pukaskwa,70,ON
+Red Lake AP,81,ON
+Saint Catharines,85,ON
+Sarnia,86,ON
+Sault Ste Marie AP,80,ON
+Simcoe,83,ON
+Sioux Lookout AP,81,ON
+Sudbury AP,81,ON
+Thunder Bay AP,81,ON
+"Timmins, Victor Power AP",81,ON
+"Toronto, Buttonville AP",86,ON
+Toronto Island AP,80,ON
+"Toronto, Lester B. Pearson IAP",85,ON
+Trenton AP,82,ON
+Upsala,80,ON
+Wawa,75,ON
+Welcome Island,73,ON
+Wiarton AP,80,ON
+Windsor AP,87,ON
+Amqui,80,QC
+Bagotville AP,81,QC
+Baie-Comeau,74,QC
+Baie-Comeau AP,72,QC
+Barrage Temiscamingue,83,QC
+Beauceville,81,QC
+Blanc-Sablon AP,63,QC
+Bonnard,76,QC
+Cap-Chat,70,QC
+Cap-D'Espoir,68,QC
+Cap-Madeleine,72,QC
+Cap-Rouge,78,QC
+Cap-Tourmente,81,QC
+Charlevoix,73,QC
+Chevery,66,QC
+"Chibougamau, Chapais AP",78,QC
+Chicoutimi,83,QC
+Chute-Des-Passes,78,QC
+Deschambault,81,QC
+Drummondville,85,QC
+Frelighsburg,82,QC
+Gaspe AP,78,QC
+Granby,85,QC
+Grindstone Island,70,QC
+Havre-Saint-Pierre AP,71,QC
+Heath Point,64,QC
+Hull,87,QC
+Ile Aux Perroquets,60,QC
+Ile Rouge,62,QC
+Iles De La Madeleine,73,QC
+Inukjuak AP,65,QC
+Jonquiere,81,QC
+Kuujjuaq AP,71,QC
+Kuujjuarapik AP,72,QC
+L'Acadie,84,QC
+L'Assomption,84,QC
+L'Etape,74,QC
+La Baie,81,QC
+La Grande Iv AP,76,QC
+La Grande Riviere AP,76,QC
+La Pocatiere,80,QC
+La Tuque,83,QC
+Lac Benoit,76,QC
+Lac Eon,75,QC
+Lac Saint-Pierre,79,QC
+Lake Eon AP,70,QC
+Lennoxville,82,QC
+Longue-Pointe-De-Mingan,67,QC
+Maniwaki AP,83,QC
+Maniwaki Ua,81,QC
+Manouane Est,76,QC
+Matagami AP,81,QC
+Mctavish,84,QC
+Megantic AP,83,QC
+Mistook,81,QC
+Mont-Joli AP,77,QC
+Mont-Orford,74,QC
+Montreal-Est,84,QC
+"Montreal, Mirabel IAP",82,QC
+"Montreal, Pierre Elliott Trude AP",83,QC
+"Montreal, St-Hubert AP",83,QC
+Natashquan AP,68,QC
+New Carlisle,76,QC
+Nicolet,81,QC
+Nitchequon,69,QC
+Normandin,80,QC
+Onatchiway,80,QC
+Parent,79,QC
+Pointe Claveau,76,QC
+Pointe Noire,73,QC
+Pointe-Au-Pere,71,QC
+Pointe-Des-Monts,65,QC
+Port-Menier,72,QC
+"Quebec, Jean Lesage IAP",81,QC
+Rimouski,79,QC
+Riviere-Du-Loup,77,QC
+Roberval AP,80,QC
+Rouyn,81,QC
+Rouyn AP,81,QC
+Schefferville AP,71,QC
+Sept-Iles AP,70,QC
+Sherbrooke AP,81,QC
+St-Anicet,84,QC
+St. Jean,86,QC
+St. Jeirome,86,QC
+St-Jovite,82,QC
+St. Hubert AP,83,QC
+Sept. lles AP,69,QC
+Shawinigan,84,QC
+Sherbrooke CO,80,QC
+Ste Agathe Des Monts,79,QC
+Ste-Anne-De-Bellevue,83,QC
+Ste-Clothilde,84,QC
+Ste-Foy (U. Laval),82,QC
+Thetford Mines,84,QC
+Trois-Rivieres,79,QC
+Val-D'Or AP,81,QC
+Valleyfield,86,QC
+Varennes,84,QC
+Assiniboia AP,86,SK
+Broadview,83,SK
+Collins Bay,75,SK
+Coronach,87,SK
+Cree Lake,76,SK
+Cypress Hills Park,80,SK
+Eastend Cypress,83,SK
+Elbow,86,SK
+Estevan AP,86,SK
+Hudson Bay,81,SK
+Indian Head,83,SK
+Key Lake AP,78,SK
+Kindersley AP,84,SK
+La Ronge AP,79,SK
+Last Mountain,83,SK
+Leader AP,87,SK
+Lucky Lake,84,SK
+Maple Creek,86,SK
+Meadow Lake AP,80,SK
+Melfort,81,SK
+Moose Jaw AP,87,SK
+Moose Jaw CO,86,SK
+Nipawin AP,81,SK
+North Battleford AP,82,SK
+Outlook,85,SK
+Prince Albert AP,81,SK
+Regina AP,85,SK
+Rockglen,85,SK
+Rosetown East,84,SK
+Saskatoon Diefenbaker IAP,84,SK
+"Saskatoon, Kernen Farm",83,SK
+Scott,83,SK
+Southend,78,SK
+Spiritwood West,80,SK
+Stony Rapids ,79,SK
+Swift Current AP,84,SK
+Swift Current CO,85,SK
+Uranium City,76,SK
+"Val Marie, Southeast",89,SK
+Waskesiu Lake,79,SK
+"Watrous, East",83,SK
+Weyburn,86,SK
+Wynyard,82,SK
+Yorkton AP,82,SK
+Burwash AP,70,YT
+Faro,75,YT
+Haines Junction,73,YT
+Herschel Is,58,YT
+Ivvavik Nat. Pa,71,YT
+Komakuk Be,60,YT
+Mayo AP,77,YT
+Rock River,69,YT
+Shingle Point AP,68,YT
+Teslin,73,YT
+Watson Lake AP,75,YT
+Whitehorse AP,74,YT

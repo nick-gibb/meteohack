@@ -4,22 +4,25 @@ from app.forms import LoginForm
 import requests
 import pandas as pd
 import geopy.distance
+from passwords import GOOGLE_KEY
 
 filename = "data/010_room_air_conditioners_climatiseurs_individuels/010_Data_Données.csv"
 acs = pd.read_csv(filename, encoding='cp1252')
 
-ENERGY_RATES_PER_1000_KWH = {
-    "QC": 100,
-    "MN": 126,
-    "BC": 160,
-    "NB": 182,
-    "AB": 201,
-    "NL": 169,
-    "SK": 232,
-    "ON": 186,
-    "NS": 230
+ENERGY_RATES = {
+    "QC": 0.100,
+    "MN": 0.126,
+    "BC": 0.160,
+    "NB": 0.182,
+    "AB": 0.201,
+    "NL": 0.169,
+    "SK": 0.232,
+    "ON": 0.186,
+    "NS": 0.230
 }
 
+print('hyi')
+print(GOOGLE_KEY)
 r = requests.get(
     "https://geo.weather.gc.ca/geomet/features/collections/climate-monthly/items")
 j = r.json()
@@ -40,36 +43,69 @@ for feature in j['features']:
             stations.append(station)
             station_names.append(props['STATION_NAME'])
 stations_df = pd.DataFrame(stations)
+stations_df_reduced = stations_df[stations_df['COOLING_DEGREE_DAYS'] != 0.0]
+
+records_dict = pd.read_csv('data/records_df.csv').T.to_dict()
 
 
-def cooling_days_at_nearest_station(coordinates):
+def get_nearest_design_temp(coordinates):
     nearest_station_distance = None
-    COOLING_DEGREE_DAYS = None
-    name_nearest_station = None
-    for index, row in stations_df.iterrows():
-        lat = float(row['LATITUDE'])
-        long = float(row['LONGITUDE'])
-        weather_station_coord = (lat, long)
+    nearest_station = None
+    for station in records_dict.values():
 
-        distance = geopy.distance.distance(
-            coordinates, weather_station_coord).km
+        lat = float(station['lat'])
+        long = float(station['long'])
+        station_coord = (lat, long)
+        distance = geopy.distance.distance(coordinates, station_coord).km
 
-        if index == 0:
+        if nearest_station_distance == None:
             nearest_station_distance = distance
-            COOLING_DEGREE_DAYS = row['COOLING_DEGREE_DAYS']
-            name_nearest_station = row['STATION_NAME']
+            nearest_station = station
         else:
             if distance < nearest_station_distance:
                 nearest_station_distance = distance
-                COOLING_DEGREE_DAYS = row['COOLING_DEGREE_DAYS']
-                name_nearest_station = row['STATION_NAME']
+                nearest_station = station
+    return nearest_station
 
-    return COOLING_DEGREE_DAYS
+
+# def cooling_days_at_nearest_station(coordinates):
+#     nearest_station_distance = None
+#     COOLING_DEGREE_DAYS = None
+#     name_nearest_station = None
+#     for index, row in stations_df.iterrows():
+#         lat = float(row['LATITUDE'])
+#         long = float(row['LONGITUDE'])
+#         weather_station_coord = (lat, long)
+
+#         distance = geopy.distance.distance(
+#             coordinates, weather_station_coord).km
+
+#         if index == 0:
+#             nearest_station_distance = distance
+#             COOLING_DEGREE_DAYS = row['COOLING_DEGREE_DAYS']
+#             name_nearest_station = row['STATION_NAME']
+#         else:
+#             if distance < nearest_station_distance:
+#                 nearest_station_distance = distance
+#                 COOLING_DEGREE_DAYS = row['COOLING_DEGREE_DAYS']
+#                 name_nearest_station = row['STATION_NAME']
+
+#     return COOLING_DEGREE_DAYS
+
+
+def get_air_con_info(brand, model):
+    air_con_info = acs[(acs["BRAND_NAME"] == "Wallmate") & (
+        acs["MODEL_NUM_1"] == "SCA09LS")]
+    air_con_info_needed = {
+        "EE_RATIO": air_con_info['EE_RATIO'].values.tolist()[0],
+        "COOL_CAP_BTU": air_con_info['COOL_CAP_BTU'].values.tolist()[0]
+    }
+    return air_con_info_needed
 
 
 def get_postal_info(postal):
-    url_postal = "https://maps.googleapis.com/maps/api/geocode/json?address={postal}&key=AIzaSyCtMlbzEdOw3_0vWbOCWUG1fHaEVQxGWu0".format(
-        postal=postal)
+    url_postal = "https://maps.googleapis.com/maps/api/geocode/json?address={postal}&key={key}".format(
+        postal=postal, key=GOOGLE_KEY)
     print(url_postal)
     r = requests.get(url_postal)
     print(r.status_code)
@@ -80,7 +116,7 @@ def get_postal_info(postal):
 
 
 def get_energy_rate(province):
-    energy_rate = ENERGY_RATES_PER_1000_KWH[province]
+    energy_rate = ENERGY_RATES[province]
     return str(energy_rate)
 
 
@@ -88,15 +124,16 @@ def cooling_days_at_nearest_station(coordinates):
     nearest_station_distance = None
     COOLING_DEGREE_DAYS = None
     name_nearest_station = None
-    for index, row in stations_df.iterrows():
+    for index, row in stations_df_reduced.iterrows():
         lat = float(row['LATITUDE'])
         long = float(row['LONGITUDE'])
         weather_station_coord = (lat, long)
 
         distance = geopy.distance.distance(
             coordinates, weather_station_coord).km
-
-        if index == 0:
+        print(distance)
+        print("index", index)
+        if nearest_station_distance is None:
             nearest_station_distance = distance
             COOLING_DEGREE_DAYS = row['COOLING_DEGREE_DAYS']
             name_nearest_station = row['STATION_NAME']
@@ -105,11 +142,16 @@ def cooling_days_at_nearest_station(coordinates):
                 nearest_station_distance = distance
                 COOLING_DEGREE_DAYS = row['COOLING_DEGREE_DAYS']
                 name_nearest_station = row['STATION_NAME']
-    print("name_nearest_station", name_nearest_station)
-    print("nearest_station_distance", nearest_station_distance)
-    print("COOLING_DEGREE_DAYS", COOLING_DEGREE_DAYS)
+    # print("name_nearest_station", name_nearest_station)
+    # print("nearest_station_distance", nearest_station_distance)
+    # print("COOLING_DEGREE_DAYS", COOLING_DEGREE_DAYS)
 
-    return COOLING_DEGREE_DAYS
+    return COOLING_DEGREE_DAYS, name_nearest_station, nearest_station_distance
+
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 
 @app.route('/get_models')
@@ -126,12 +168,31 @@ def login():
     if request.method == 'POST':
         # print(request.form)
         postal_info = get_postal_info(form.postal.data)
+        postal_code_2 = postal_info['results'][0]['address_components'][0]['long_name']
+        neighborhood = postal_info['results'][0]['address_components'][1]['long_name']
+        city = postal_info['results'][0]['address_components'][2]['long_name']
         postal_location = postal_info['results'][0]['geometry']['location']
         postal_centroid = (postal_location["lat"], postal_location["lng"])
-        print(postal_centroid)
-        cooling_days = cooling_days_at_nearest_station(postal_centroid)
+
+        cooling_days, name_nearest_station, nearest_station_distance = cooling_days_at_nearest_station(
+            postal_centroid)
+        nearest_station = get_nearest_design_temp(postal_centroid)
+        design_temp = nearest_station['design_temp']
         province = postal_info['results'][0]['address_components'][4]['short_name']
-        energy_rate = get_energy_rate(province)
-        return render_template('results.html', energy_rate=energy_rate, province=province, brand=form.brand.data, model=form.model.data, postal_centroid=postal_centroid, cooling_days=cooling_days)
+        energy_rate = float(get_energy_rate(province))
+        model = form.model.data
+        brand = form.brand.data
+
+        air_con_info = get_air_con_info(brand, model)
+        COOL_CAP_BTU = air_con_info["COOL_CAP_BTU"]
+        EE_RATIO = air_con_info["EE_RATIO"]
+
+        # cooling_days = 359
+
+        operation_cost = 24 * (cooling_days / (design_temp - 18)) * \
+            (COOL_CAP_BTU / (EE_RATIO*.9)) * (energy_rate/1000)
+
+        # print("operation_cost", operation_cost)
+        return render_template('results.html', name_nearest_station=name_nearest_station.capitalize(), nearest_station_distance=int(nearest_station_distance), brand=brand, model=model, postal_info=postal_info, energy_rate=energy_rate, province=province, EE_RATIO=EE_RATIO, COOL_CAP_BTU=COOL_CAP_BTU, postal_centroid=postal_centroid, cooling_days=cooling_days, design_temp=design_temp, operation_cost=int(operation_cost), postal_code_2=postal_code_2, neighborhood=neighborhood, city=city)
     else:
         return render_template('submit_postal.html',  title='Energy use', form=form)
